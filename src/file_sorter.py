@@ -34,7 +34,8 @@ def sort_list_of_trades(security_data, directory) -> list | list:
             # Read in the files
             df = pd.read_csv(f'{directory}\\{f}', sep=',')
             # Rename 'Trade #' to something that causes less problems
-            df.rename(columns = {'Trade #': 'Trade'}, inplace=True)
+            df.rename(columns = {'Unnamed: 0': 'Trade'}, inplace=True)
+            df.rename(columns = {'Trade #': 'Trade'}, inplace = True)
             # Sort the values in ascending order
             sorted_df = df.sort_values(by=['Trade'], ascending=True)
             # Save the CSV
